@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <title>Conversor De Medidas</title>
+
+  <style>
+    * {
+      text-align: center;
+    }
+
+    .card {
+      margin-left: 29%;
+    }
+
+    .card-body {
+      border: 2px;
+      border-style: solid;
+      border-radius: 2  %;
+
+      background-color: rgba(0, 155, 255, 0.6);
+    }
+
+    .form-select1 {
+      margin-right: 3.5%;
+      margin-top: 0.5%;
+    }
+  </style>
+</head>
+
+<body>
+  <form class="form">
+    <div class="card" style="width: 500px">
+      <div class="card-body">
+        <h2 class="card-title">Conversor de Medidas</h2><br>
+        <input class="entrada" id="ValorInicial" type="text"></input> = <input class="saida" id="Resultado"
+          type="text"></input><br>
+        <select id="Entrada" class="form-select1" style="width: 190px;" aria-label="Default select example">
+          <option value="cm">Centímetro</option>
+          <option value="m">Metro</option>
+          <option value="km">Quilômetro</option>
+          <option value="plg">Polegada</option>
+          <option value="pe">Pés</option>
+        </select>
+        <select id="Saida" class="form-select2" style="width: 190px;" aria-label="Default select example">
+          <option value="cm">Centímetro</option>
+          <option value="m">Metro</option>
+          <option value="km">Quilômetro</option>
+          <option value="plg">Polegada</option>
+          <option value="pe">Pés</option>
+        </select>
+        <br><br>
+        <button class="submit" onclick="conversor()">Converter</button>
+      </div>
+    </div>
+  </form>
+
+
+  <script>
+    function conversor() {
+      var entrada, saida;
+
+      switch (document.getElementById("Entrada").value) {
+        case "cm":
+          entrada = "cm";
+          break;
+        case "m":
+          entrada = "m";
+          break;
+        case "km":
+          entrada = "km";
+          break;
+        case "plg":
+          entrada = "plg";
+          break;
+        case "pe":
+          entrada = "pe";
+          break;
+      }
+
+      switch (document.getElementById("Saida").value) {
+        case "cm":
+          saida = "cm";
+          break;
+        case "m":
+          saida = "m";
+          break;
+        case "km":
+          saida = "km";
+          break;
+        case "plg":
+          saida = "plg";
+          break;
+        case "pe":
+          entrada = "pe";
+          break;
+      }
+
+      if (entrada == "cm") {
+        if (saida == "m") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 100;
+        }
+        else if (saida == "km") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 100000;
+        }
+        else if (saida == "plg") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 2.54;
+        } else if (saida == "pe") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 30.48;
+        } else {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
+        }
+
+      }
+      else if (entrada == "m") {
+        if (saida == "cm") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 100;
+        }
+        else if (saida == "km") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 1000;
+        }
+        else if (saida == "plg") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 39.37;
+        } else if (saida == "pe") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 3.28;
+        } else {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
+        }
+      }
+      else if (entrada == "km") {
+        if (saida == "cm") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 100000;
+        }
+        else if (saida == "m") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 1000;
+        }
+        else if (saida == "plg") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 39370.0787;
+        } else if (saida == "pe") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 3280.8399;
+        } else {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
+        }
+      }
+      else if (entrada == "plg") {
+        if (saida == "cm") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 2.54;
+        }
+        else if (saida == "m") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 39.37;
+        }
+        else if (saida == "km") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 39370.0787;
+        } else if (saida == "pe") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 12;
+        } else {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
+        }
+      }
+      else if (entrada == "pe") {
+        if (saida == "cm") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 30.48;
+        }
+        else if (saida == "m") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 3.28;
+        }
+        else if (saida == "km") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 3280.8399;
+        }
+        else if (saida == "plg") {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 12;
+        } else {
+          document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
+        }
+      }
+    }
+
+  </script>
+
+
+</body>
+
+</html>
