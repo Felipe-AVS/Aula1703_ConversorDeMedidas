@@ -109,7 +109,7 @@
           saida = "plg";
           break;
         case "pe":
-          entrada = "pe";
+          saida = "pe";
           break;
       }
 
@@ -124,7 +124,7 @@
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 2.54;
         } else if (saida == "pe") {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value / 30.48;
-        } else if (entrada == saida) {
+        } else{
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
         }
 
@@ -138,9 +138,10 @@
         }
         else if (saida == "plg") {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 39.37;
-        } else if (saida == "pe") {
+        } 
+        else if (saida == "pe") {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 3.28;
-        } else if (entrada == saida) {
+        } else {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
         }
       }
@@ -155,7 +156,7 @@
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 39370.0787;
         } else if (saida == "pe") {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 3280.8399;
-        } else if (entrada == saida) {
+        } else{
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
         }
       }
@@ -186,7 +187,7 @@
         }
         else if (saida == "plg") {
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value * 12;
-        } else if (entrada == saida) {
+        } else{
           document.getElementById("Resultado").value = document.getElementById("ValorInicial").value;
         }
       }
